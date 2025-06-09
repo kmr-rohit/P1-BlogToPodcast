@@ -1,4 +1,4 @@
-elevenlabs==0.2.26
+elevenlabs==2.3.0
 google-generativeai==0.3.1
 requests==2.31.0
 fastapi==0.104.1
