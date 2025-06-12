@@ -122,6 +122,6 @@ async def get_recent_podcasts():
     return []
 
 # Don't include this when deploying to Vercel
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
