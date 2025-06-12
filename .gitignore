@@ -6,3 +6,6 @@ __pycache__/
 venv/
 ENV/
 .vercel 
+node_modules/
+.next/
+.node_modules
