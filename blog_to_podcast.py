@@ -7,20 +7,24 @@ from agno.models.google import Gemini
 from agno.agent import RunResponse
 from elevenlabs.client import ElevenLabs
 from datetime import datetime
+from dotenv import load_dotenv
 
-# Default API Keys (should be set in environment variables)
-DEFAULT_GEMINI_KEY = "AIzaSyD2NfBcDJdmMzKDCtvHuWnODy2Z5wa4NXA"
-DEFAULT_ELEVENLABS_KEY = "sk_e25fde28d02dde371e328439aabd6d0ab8fd31b8f2b84be5"
-DEFAULT_FIRECRAWL_KEY = "fc-5317e7da35d84992b4375b69bcdd4c66"
+# Load environment variables
+load_dotenv()
+
+# Get API keys from environment variables
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
+FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
 
 class BlogToPodcastAgent:
     def __init__(self, 
                  gemini_api_key: str = None, 
                  elevenlabs_api_key: str = None, 
                  firecrawl_api_key: str = None):
-        self.gemini_api_key = gemini_api_key or DEFAULT_GEMINI_KEY
-        self.elevenlabs_api_key = elevenlabs_api_key or DEFAULT_ELEVENLABS_KEY
-        self.firecrawl_api_key = firecrawl_api_key or DEFAULT_FIRECRAWL_KEY
+        self.gemini_api_key = gemini_api_key or GEMINI_API_KEY
+        self.elevenlabs_api_key = elevenlabs_api_key or ELEVENLABS_API_KEY
+        self.firecrawl_api_key = firecrawl_api_key or FIRECRAWL_API_KEY
         if not all([self.gemini_api_key, self.elevenlabs_api_key, self.firecrawl_api_key]):
             raise ValueError("All API keys must be provided via arguments or environment variables.")
 
